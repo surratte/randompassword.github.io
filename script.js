@@ -1,9 +1,9 @@
 // Assignment Code
 const specialCharacters = '!@#$%^&*()_+'
 const numbers = '1234567890'
-const letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVQXYZ'
-const generateBtn = document.getElementById('generateBtn')
+const letters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVQXYZ';
 var generateBtn = document.querySelector("#generate");
+const generateButton = document.getElementById('generateBtn')
 
 // Write password to the #password input
 function writePassword() {
@@ -13,6 +13,8 @@ function writePassword() {
   passwordText.value = password;
 
 }
+
+// Prompts that come up after you click generate password
 function generatePassword() {
   var passwordLength = prompt("Please enter the number of characters you want for you new password.  It must be more than 12 but less than 128.");
 
@@ -25,15 +27,15 @@ function generatePassword() {
   var special = confirm("Do you want special characters in your password?");
 
   // this is a minimum count for numbers, lowerCases, upperCases & specialCharacters
-  var minimumCount = 0;
+  var minimumCount = 12;
 
 
   // Empty minimums for numbers, lowerCases, upperCases & specialCharacters
 
-  var minimumNumbers = "";
-  var minimumLowerCases = "";
-  var minimumUpperCases = "";
-  var minimumSpecialCharacters = "";
+  var minimumNumbers = "0";
+  var minimumLowerCases = "0";
+  var minimumUpperCases = "0";
+  var minimumSpecialCharacters = "0";
 
 
   // Generator functions**
@@ -83,7 +85,7 @@ function generatePassword() {
   }
 
   // empty string variable for the for loop below
-  var randomPasswordGenerated = "";
+  var randomPasswordGenerated = "Numbers, Letters, SpecialCharacters";
 
   // loop getting random characters
   for (let i = 0; i < (parseInt(passwordLength) - minimumCount); i++) {
@@ -102,8 +104,5 @@ function generatePassword() {
 
   return randomPasswordGenerated;
 
-}
-
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+  //Add event listener to generate button
+  generateBtn.addEventListener("click", writePassword);}
