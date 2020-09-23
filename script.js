@@ -4,11 +4,15 @@ var lowerCases = "abcdefghijklmnopqrstuvwxyz"
 var generateBtn = document.querySelector("#generate");
 const generateButton = document.getElementById('generateBtn')
 
+function generatePassword() {
+  return console.log("I'm just here so javascript won't throw an error");
+  }
 // Write password to the #password input
 function writePassword(){
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
-    passwordText.value = password}
+    
+  passwordText.value = password}
 
 
 // Prompts that come up after you click generate password
@@ -22,7 +26,7 @@ function writePassword(){
 
   var confirmNumbers = confirm("do you want numbers?");
 
-var minimumCount = '8'
+var minimumCount = '12'
 
 var maximumCount ='128'
 
