@@ -4,18 +4,19 @@ var lowerCases = "abcdefghijklmnopqrstuvwxyz"
 var generateBtn = document.querySelector("#generate");
 const generateButton = document.getElementById('generateBtn')
 
-function generatePassword() {
-  return console.log("I'm just here so javascript won't throw an error");
-  }
-// Write password to the #password input
-function writePassword(){
-  var password = generatePassword();
+
+function randomPasswordGenerated(){
+    
+  var password = generatePassword();{
   var passwordText = document.querySelector("#password");
     
   passwordText.value = password}
 
 
+
+
 // Prompts that come up after you click generate password
+  function generatePassword(){
   var passwordLength = prompt("Please enter the number of characters you want for you new password.  It must be more than 12 but less than 128.");
 
   var numbers = confirm("Do you want numbers in your password?");
@@ -83,4 +84,5 @@ randomPasswordGenerated += numbers;
   randomPasswordGenerated += upperCases;
   randomPasswordGenerated += specialCharacters;
 
-generateBtn.addEventListener("click", writePassword);
+  return PasswordGenerated;} 
+  generateBtn.addEventListener("click", writePassword)}
