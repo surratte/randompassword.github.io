@@ -1,53 +1,69 @@
-var specialCharacters = "!@#$%^&*()_+"
-var upperCases = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-var lowerCases = "abcdefghijklmnopqrstuvwxyz"
-var generateBtn = document.querySelector("#generate");
+// Special characters for the function created
+const specialCharacters = "!@#$%^&*()";
 const generateButton = document.getElementById('generateBtn')
+generate.addEventListener('click', writePassword)
+var lowerCases = "abcdefghijklmnopqrstuvwxyz";
+var upperCases = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 
-function randomPasswordGenerated(){
-    
-  var password = generatePassword();{
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
   var passwordText = document.querySelector("#password");
-    
-  passwordText.value = password}
 
+  passwordText.value = password;
 
-
+}
 
 // Prompts that come up after you click generate password
-  function generatePassword(){
+function generatePassword() {
   var passwordLength = prompt("Please enter the number of characters you want for you new password.  It must be more than 12 but less than 128.");
-
+passwordLength = parseInt(passwordLength)
+console.log(passwordLength >= 12)
+console.log(passwordLength <= 128)
+if(passwordLength >= 12 && passwordLength <=128){
+console.log("password is a valid length")
+} else {
+  alert("Your password needs to be between 12 and 128 characters")
+  generatePassword()
+}
   var numbers = confirm("Do you want numbers in your password?");
 
   var lowerCases = confirm("Do you want lowercases in your password?");
 
-  var confirmspecialCharacters = confirm("do you want special characters?");
+  var upperCases = confirm("Do you want uppercases in your password?");
 
-  var confirmNumbers = confirm("do you want numbers?");
+  var special = confirm("Do you want special characters in your password?");
 
-var minimumCount = '12'
+  var minimumCount = 12;
 
-var maximumCount ='128'
 
-var functionArray = {
-  getNumbers: function() {
-    return String.fromCharCode(Math.floor(Math.random() * ((maximumCount - minimumCount) + 1)));
-  },
+  var minimumNumbers = "12";
+  var minimumLowerCases = "12";
+  var minimumUpperCases = "12";
+  var minimumSpecialCharacters = "12";
 
-  getLowerCases: function() {
-    return String.fromCharCode(Math.floor(Math.random() * ((maximumCount - minimumCount) + 1)));
-  },
 
-  getUpperCases: function() {
-    return String.fromCharCode(Math.floor(Math.random() * ((maximumCount - minimumCount) + 1)));
-  },
+  var functionArray = {
+    getNumbers: function() {
+      return String.fromCharCode(Math.floor(Math.random() * 10 + 48));
+    },
 
-  getSpecialCharacters: function() {
-    return specialCharacters[Math.floor(Math.random() * specialCharacters.length)]
-  }
-}
+    getLowerCases: function() {
+      return String.fromCharCode(Math.floor(Math.random() * 26 + 97));
+    },
+
+    getUpperCases: function() {
+      return String.fromCharCode(Math.floor(Math.random() * 26 + 65));
+    },
+
+    getSpecialCharacters: function() {
+      return specialCharacters[Math.floor(Math.random() * specialCharacters.length)]
+    }
+
+};
+
+
   if (numbers === true) {
     minimumNumbers = functionArray.getNumbers();
     minimumCount++;
@@ -66,23 +82,27 @@ var functionArray = {
 
   }
 
-  if (specialCharacters === true) {
+  if (special === true) {
     minimumSpecialCharacters = functionArray.getSpecialCharacters();
     minimumCount++;
 
   }
+
   var randomPasswordGenerated = "";
 
-  for (var i = 0; i < (parseInt(passwordLength) - minimumCount + maximumCount); i++) {
+  for (let i = 0; i < (parseInt(passwordLength) - minimumCount); i++) {
     var randomNumberPicked = Math.floor(Math.random() * 4);
 
-randomPasswordGenerated += randomNumberPicked;
+    randomPasswordGenerated += randomNumberPicked;
+
+  }
+
+  randomPasswordGenerated += minimumNumbers;
+  randomPasswordGenerated += minimumLowerCases;
+  randomPasswordGenerated += minimumUpperCases;
+  randomPasswordGenerated += minimumSpecialCharacters;
+
+
+  return randomPasswordGenerated;
 
 }
-randomPasswordGenerated += numbers;
-  randomPasswordGenerated += lowerCases;
-  randomPasswordGenerated += upperCases;
-  randomPasswordGenerated += specialCharacters;
-
-  return PasswordGenerated;} 
-  generateBtn.addEventListener("click", writePassword)}
