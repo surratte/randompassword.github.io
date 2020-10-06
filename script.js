@@ -17,6 +17,38 @@ function writePassword() {
 
 // Prompts that come up after you click generate password
 function generatePassword() {
+  if (numbers === true) {
+    minimumNumbers = functionArray.getNumbers();
+    minimumCount++;
+
+  }
+
+  if (lowerCases === true) {
+    minimumLowerCases = functionArray.getLowerCases();
+    minimumCount++;
+
+  }
+
+  if (upperCases === true) {
+    minimumUpperCases = functionArray.getUpperCases();
+    minimumCount++;
+
+  }
+
+  if (special === true) {
+    minimumSpecialCharacters = functionArray.getSpecialCharacters();
+    minimumCount++;
+
+  }
+
+  var randomPasswordGenerated = "";
+
+  for (let i = 0; i < (parseInt(passwordLength) - minimumCount); i++) {
+    var randomNumberPicked = Math.floor(Math.random() * 4);
+
+    randomPasswordGenerated += randomNumberPicked;
+
+  }
   var passwordLength = prompt("Please enter the number of characters you want for you new password.  It must be more than 12 but less than 128.");
 passwordLength = parseInt(passwordLength)
 console.log(passwordLength >= 12)
@@ -64,38 +96,7 @@ console.log("password is a valid length")
 };
 
 
-  if (numbers === true) {
-    minimumNumbers = functionArray.getNumbers();
-    minimumCount++;
-
-  }
-
-  if (lowerCases === true) {
-    minimumLowerCases = functionArray.getLowerCases();
-    minimumCount++;
-
-  }
-
-  if (upperCases === true) {
-    minimumUpperCases = functionArray.getUpperCases();
-    minimumCount++;
-
-  }
-
-  if (special === true) {
-    minimumSpecialCharacters = functionArray.getSpecialCharacters();
-    minimumCount++;
-
-  }
-
-  var randomPasswordGenerated = "";
-
-  for (let i = 0; i < (parseInt(passwordLength) - minimumCount); i++) {
-    var randomNumberPicked = Math.floor(Math.random() * 4);
-
-    randomPasswordGenerated += randomNumberPicked;
-
-  }
+  
 
   randomPasswordGenerated += minimumNumbers;
   randomPasswordGenerated += minimumLowerCases;
